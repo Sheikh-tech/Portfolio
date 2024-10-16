@@ -1,0 +1,38 @@
+nav {
+    padding: 10px 0;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    background-color: black;
+    padding: 10px 20px;
+    border-radius: 25px;
+}
+
+.navbar a {
+    color: white; 
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px; 
+    border: 2px solid white; 
+    border-radius: 25px; 
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: inline-block;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    background-color: white; 
+    color: black; 
+}
+
+/* If you have any mobile-specific styles for the navbar, include them here */
+@media (max-width: 768px) {
+    /* Add any mobile-specific navbar styles here, if necessary */
+}

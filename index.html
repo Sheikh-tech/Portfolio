@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        /*center logo*/
+        .center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        .button-container {
+            text-align: center;
+        }
+
+        .button-container a {
+            display: inline-block;
+            position: relative;
+            z-index: 2; /* Keep it on top */
+        }
+
+        .button-container img {
+            width: 50px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .button-container img:hover {
+            transform: scale(1.1); /* Slight zoom-in effect on hover */
+        }
+
+        /* Flash overlay that covers the screen for the white flash */
+        .flash-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* Flash and dissolve animation */
+        .flash-overlay.active {
+            animation: flashHoldAndDissolve 2s ease forwards;
+        }
+
+        @keyframes flashHoldAndDissolve {
+            0% {
+                opacity: 0;
+            }
+            10% {
+                opacity: 1; /* Full white flash at 10% */
+            }
+            100% {
+                opacity: 1; /* Hold the white flash until the next page loads */
+            }
+        }
+
+        /* Optional: To prevent any page interactions while the flash holds */
+        .no-interaction {
+            pointer-events: none;
+        }
+        .style-170 { /*real paragraph text*/
+    color: white
+    ;
+    margin-bottom: auto;
+    font-family: Roboto, sans-serif;
+    font-weight: 400;
+    text-align: left;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 24px;
+    display: block;
+    margin-top: 0px;
+    box-sizing: border-box;
+}
+    </style>
+</head>
+<body>
+
+
+    <div class="center-container">
+        <div class="button-container">
+  
+            <a href="#" id="enterButton">
+                <img src="powers.png" alt="PowerOn" />
+            </a><!--<p class="style-170">Click Here</p>-->
+        </div>
+        <!-- Flash overlay for the white light effect -->
+        <div class="flash-overlay" id="flashOverlay"></div>
+    </div>
+
+    <script>
+        document.getElementById('enterButton').addEventListener('click', function(e) {
+            e.preventDefault();  // Prevent the default link behavior
+
+            // Show the flash overlay with the animation
+            const flashOverlay = document.getElementById('flashOverlay');
+            flashOverlay.classList.add('active');
+
+            // Disable any interaction while the flash holds
+            document.body.classList.add('no-interaction');
+
+            // Wait for the flash animation to finish, then redirect to the main page
+            setTimeout(function() {
+                window.location.href = 'home.html';  // Replace with your actual page URL
+            }, 150); // Set to match the duration of the flash (1.5s hold)
+        });
+    </script>
+    
+</body>
+</html>

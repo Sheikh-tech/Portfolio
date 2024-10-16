@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Project 1</title>
+    <link rel="stylesheet" href="cards.css">
+    <link rel="preload" href="cards.css" as="style">
+</head>
+<body>
+    <nav>
+        <ul class="navbar">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="mailto:lesheikt@miamioh.edu">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="section">
+        <h1 class="style-23">Investigating Blockchain Fraudulent Activity</h1>
+        <div class="about-content">
+            <p class="style-17">Due to the constant scrutiny of digital asset markets, driven by a lack of regulation and reports of bad actors, a student-led team initiated an investigation into fraudulent activities within the industry. 
+                Rug pulls, honeypots, wash trading, and pump-and-dump schemes are all terms used to describe fraudulent activity within the digital asset markets. Our team researched and analyzed several of these schemes and the mechanisms behind them. 
+                  </p></div>
+
+                  <section class="image-container"></section> <!--Filler for space-->
+                  <h1 class="style-29">My Role</h1>
+
+            <p class="style-17"> I worked alongside other students to process and interpret large blockchain datasets sourced from block explorers. Blockchain datasets are divided into pages containing 25 transactions each, requiring our team to comb through hundreds of transactions and record information throughout the process. I was responsible for: 
+            <ul class="listo-new2">
+                <li>Scraping and analyzing large datasets</li>
+            <li>Processing and charting networks of data</li>
+            <li>Documenting and evaluating findings</li>
+        </ul>  </div>
+
+        <section class="image-container"></section> <!--Filler for space-->
+                <h1 class="style-29">Toolkit</h1>  
+                   
+            <ul class="listo-new"><p>
+                <li>Block Explorers (i.e. BscScan)</li>
+                <li>Market Analysis Tools (i.e. DexScreener)</li>
+                <li>Network Analysis Tool (Gephi)</li>
+            </ul></p>
+            
+                <h1 class="style-29">Methodology</h1></div> 
+    <p class="style-17">Based on the outlined criteria, our team created a Python algorithm tailored to this project. The algorithm processes on-chain data linked to wallet addresses, which is then cross-referenced with block explorers for accuracy.
+Transactions were flagged and digital wallet addresses were marked if they exhibited any of the following patterns:
+    </p>
+
+   <ul class="listo">
+    <li>Repeated transfers of value occurring at regular time intervals</li>
+<li>Contracts with a high volume of transactions involving minimal amounts of BNB (e.g., ~0.05BNB)</li>
+<li>Large-value transactions (10,000 USD) entering or leaving contracts</li>
+</ul> </div>
+
+
+        <section class="image-container">
+            <div class="image-wrapper">
+        <img src="list.png" alt="Block Explorer" loading="lazy" decoding="async">
+        <p class="subtitle">Example Transactions on BNB Block Explorer </p>
+        <div></div>
+    </section></section>
+
+<section class="section"><p class="style-17">Transactions are then exported to Gephi where the data can be visualized on a directed network graph for deeper analysis. In this image, there is a network of wallets, indicated by the colored nodes, showing Binance Coin (BNB) movements from the NANORACA token origin or deployer wallet. Each green node represents a wallet that receives the bulk of BNB transferred between contracts. The green nodes distribute BNB to approximately 20 different wallets (indicated by the clear colored nodes) at each depth, or layer, from the red origin node.
+</p>
+
+<section class="image-container">
+    <div class="image-wrapper">
+    <img src="net.png" alt="Directed Network" loading="lazy" decoding="async">
+    <p class="subtitle">Directed Network of Transactions from NANORACA Deployer</p>
+    </section>
+
+        <p class="style-17">Upon analyzing the blockchain contract code, we identified suspicious functions that are improperly modifying the contract's transactional logic. Additionally, purchasers of the token are unable to sell it on exchanges, suggesting that this contract is a honeypot scam. In this scenario, investors deposit their funds but are unable to withdraw them.
+        </p>
+<section class="image-container">
+    <div class="image-wrapper">
+<img src="wat.png" alt="Directed Network" loading="lazy" decoding="async">
+<p class="subtitle">NANORACA Smart Contract Code</p>
+</div>
+    </section>
+    </section>  
+<section class="section">
+        <h2 class="style-29">Obfuscation via Wash Trading</h2>
+        <div class="listo">
+            <p class="style-17">After concluding our investigation into NANORACA, we examined a new token exhibiting similar patterns. Following the same criteria, we found the GALAs token with several questionable transactions and irregularities.
+                Digital wallets were promptly reviewed, and the blockchain contract code was examined for any signs of fraudulent or malicious activity. Transactions and contract interactions were visually mapped, revealing a complex network of likely automated processes.
+                  </p>
+        </div>
+            <section class="image-container">
+                <div class="image-wrapper">
+            <img src="deg.png" alt="Directed Network 2" loading="lazy" decoding="async">
+            <p class="subtitle">Directed Network of Transactions from GALAs Deployer</p>
+        </div></section>
+        <section class="image-container"></section> <!--Filler for space-->
+        <p class="style-17"> The GALAs contract shows similar honeypot functions similar to those found in other scam contracts, however, the transaction network suggests a level of sophistication beyond a simple scam. 
+            Blacklisting is a common and useful tactic for many tokens, however, it is often used nefariously in order to honeypot the buyers of the token.
+            Based on our findings, it is clear that the interactions with multipleBotlistAddress are intended to block multiple addresses from trading the token.
+            Given the blacklisting capabilities in the contract and a lack of transparency from the developers, the contract is likely preventing buyers from selling their tokens after purchasing them (often referred to as a honeypot).
+        </p>
+        <section class="image-container">
+            <div class="image-wrapper">
+            <img src="black.png" alt="Questionable Contract Code" loading="lazy" decoding="async">
+            <p class="subtitle">GALAs Smart Contract Code</p>
+</section> 
+    </section>
+</section>
+   
+    <section class="section">
+        <h1 class="style-29">Conclusion</h1>
+        <ul class="listo-new2">
+            <li>In four weeks, we collected and processed hundreds of transactions and analyzed smart contract code to uncover evidence of fraudulent activity within the digital asset market.</li>
+        <li>The predefined criteria for identifying potential bad actors proved effective in locating wallets and contracts of interest. 
+        </li>
+        <li>Based on discoveries made throughout the process, we can assert with a high degree of confidence that the founders of these projects were engaged in deceptive practices. 
+        </li>
+    </ul>
+    <section class="image-container"></section> <!--Filler for space-->
+        <h1 class="style-29">Insights</h1>
+<ul class="listo-new2">
+    <li>
+    Creating a robust Python algorithm enabled us to efficiently process and visualize transaction networks, ultimately giving us deeper insight into the complex world of fraudulent schemes.  
+    <li>The high volume of data processed with advanced analytical methods to differentiate between legitimate and suspicious activities demonstrates how crucial attention to detail is for achieving accurate results.
+    </li>
+<li>The criteria and methodology established provides a basis for developing advanced tools for future fraud detection systems. </li>        
+</li>
+</ul>
+    </section>
+
+
+</main>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
